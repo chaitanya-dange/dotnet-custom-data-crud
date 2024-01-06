@@ -1,0 +1,990 @@
+﻿body {
+    margin: 0;
+     padding: 0;
+     font-family: "General Sans";
+     box-sizing: border-box;
+ }
+ 
+ #container {
+     
+     height:100vh;
+     margin: 50px;
+     padding: 50px;
+ }
+ 
+ #title-tag {
+     display:flex;
+     justify-content:space-between;
+ }
+
+#custome-id-tag {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#all-custome-app {
+    background-color: #E5E4E2;
+    font-size: 15px;
+    padding-left: 17px;
+    margin: -16px;
+    height: 32px;
+}
+ 
+ #multi-functionlity {
+     margin-top: 10px;
+ display:flex;
+ justify-content:space-between;
+ }
+
+#crud-operation{
+    display: flex;
+    margin: 10px;
+}
+
+   .box-below-table {
+        display: flex;
+        justify-content: flex-end;
+        border: 2px solid grey;
+        margin: 5px;
+        padding: 2px;
+    }
+
+#footer-functionality{
+    display: flex;
+    justify-content: space-between;
+ }
+
+.roundBdrDlt {
+    background-color: white;
+    width: 130px; /* Set your desired width */
+    height: 35px; /* Set your desired height */
+    border-radius: 50px; /* Adjust the border-radius for curved corners */
+    /* Additional styling (you can customize these as needed) */
+
+    color: #3498db; /* Set the text color */
+    font-size: 16px; /* Set the font size */
+    /* Remove the default button border */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    margin: 10px;
+}
+
+    .roundBdrDlt:hover {
+        background-color: red; /* Change the background color on hover */
+        color: white !important;
+    }
+
+
+
+    .rounded-border {
+        background-color: white;
+        width: 130px; /* Set your desired width */
+        height: 35px; /* Set your desired height */
+        border-radius: 50px; /* Adjust the border-radius for curved corners */
+        /* Additional styling (you can customize these as needed) */
+
+        color: #3498db; /* Set the text color */
+        font-size: 16px; /* Set the font size */
+        /* Remove the default button border */
+        cursor: pointer; /* Add a pointer cursor on hover */
+        margin: 10px;
+    }
+  
+/* If you want to style the button on hover, you can add the following */
+    .rounded-border:hover {
+       /* background-color: #c8e3ed;*/ /* Change the background color on hover */
+       /* color: white!important;*/
+    }
+
+.button-primary {
+    color: white;
+    background-color: #1E90FF;
+    border: none;
+}
+
+.button-outlined {
+    border: 2px solid #1E90FF;
+    color: #1E90FF;
+}
+
+.rounded-border-extra {
+    display: flex;
+    align-items: center;
+    border: 2px solid #000; /* Set the border between button and icon */
+    border-radius: 10px; /* Adjust the border-radius for curved corners */
+    padding: 5px; /* Add padding for spacing */
+}
+  
+ .rounded-border-extra button {
+    border: none; /* Remove button default border */
+    background-color: #3498db; /* Set the background color for the button */
+    color: #fff; /* Set the text color for the button */
+    padding: 10px; /* Add padding for button */
+    border-radius: 8px; /* Adjust the border-radius for curved corners */
+    cursor: pointer;
+  }
+  
+ .rounded-border-extra i {
+    margin-left: 10px; /* Adjust the space between button and icon */
+    font-size: 20px; /* Set the font size for the icon */
+    color: #3498db; /* Set the color for the icon */
+  }
+  
+ .center-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+ .sqr-property{
+    border-radius: 5px;
+  }
+
+
+  /*--------------------Add model data css ----------------*/
+
+ #body-area-popup{
+    /*width: 80vh;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+ #left-side-bar {
+    width: 30%; /* Set the desired width for the left-side-bar */
+    background-color: rgb(240, 240, 240);
+    padding: 10px;
+    margin-left: -10px;
+    margin-top:-16px;
+    padding-top: 45px;
+    /* position: fixed; Fix the left-side-bar */
+    /* height: 100%; Make it full height */
+    /* overflow-y: auto; Add a scrollbar for vertical overflow */
+}
+
+ #left-side-bar div {
+    margin-bottom: 15px; /* Adjust the value as needed */
+}
+
+
+ #right-side-bar { 
+    width: calc(100% - 30%); /* Set the width dynamically */
+    height: 65vh;
+    padding: 10px;
+    margin: 10px;
+    margin-right: 0px;
+    padding-right: 0px;
+    /* width: 65%; /* Set the desired width for the right-side-bar */
+    /* height: 75vh; */
+    /* margin-left: 30%; Adjust margin to accommodate the fixed left-side-bar */
+    overflow-y: auto; /* Add a scrollbar for vertical overflow */
+
+}
+
+ #right-side-bar input[type="text"] {
+    width: 420px !important; /* Set the width as needed */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+ .custom-input {
+    /*border-radius: 20px 20px 20px 20px;*/ /* Circular border radii for left and right sides */
+    width: 40% !important; /* Adjust the width as needed */
+}
+
+#add-radio-button {
+    display: flex;
+    margin-top: -10px;
+    margin-bottom: -8px;
+    margin-left: -20px
+}
+
+#add-radio-button div {
+margin:20px;
+
+}
+
+  /* Add the following styles to make the scrollbar visible at all times */
+ #right-side-bar::-webkit-scrollbar {
+    
+    width: 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+ #right-side-bar::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
+
+ #right-side-bar::-webkit-scrollbar-track{
+    background-color: #f1f1f1;
+}
+
+ #content-text{
+    color: grey;
+    margin: 10px;
+    padding-left: 12px;
+    font-size: 13px;
+}
+
+ #package-details-title {
+margin:10px;
+    padding-left: 16px;
+    font-size:15px;
+}
+
+ .margin-sm {
+    margin: 25px;
+}
+
+.thead-prop {
+    color: #A9A9A9 !important;
+    border-right: 2px solid #ebeaea !important;
+    border-bottom: 2px solid #7CB9E8 !important;
+    font-size: 12px;
+}
+
+ /*-----------------------*/
+
+/* Style the label */
+.margin-sm label {
+    display: block;
+    font-weight: bold;
+}
+
+/* Style the input */
+.margin-sm input[type="text"] {
+    width: 70%; /* Adjust the width as needed */
+    margin-top: 5px; /* Adjust as needed */
+}
+
+/* Style the span */
+.margin-sm span {
+    display: block;
+    margin-top: 5px; /* Adjust as needed */
+}
+
+#step-3-form {
+    margin: 20px;
+    margin-top:15px;
+
+}
+
+#step3-form-title {
+    border-bottom: 2px solid #dfd8d8;
+    margin: 20px 0px 50px 0px;
+    padding-bottom: 4px;
+}
+
+#step3FormContent {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px 50px 0px;
+}
+
+
+#conformInstallApp ul {
+    list-style-type: none; /* Remove bullet points from the list */
+    padding: 0; /* Remove default padding for the list */
+}
+
+#conformInstallApp li {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 25px;
+    padding: 10px; /* Add padding for better visual appearance */
+    margin-bottom: 10px; /* Add margin to separate list items */
+    
+}
+
+
+
+ /*-------------------------*/
+
+ .bold-mk {
+    font-weight: bold;
+}
+
+ #package-name{
+    font-weight: bold;
+    font-size: smaller;
+}
+
+/*----------modal width and height------------*/
+
+ .modal-dialog-dd {
+        max-width: 1000px!important; /* Set your desired width */
+    }
+
+
+
+/* Increase modal height */
+.modal-content-cc {
+    height: 570px !important; /* Set your desired height */
+}
+
+.modal-script-dd {
+    max-width: 1280px !important;
+}
+
+.modal-script-cc {
+    height: 560px !important;
+}
+
+/*----------modal footer css------------*/
+.modal-footer-ff {
+            display: flex !important;
+            justify-content: space-between !important;
+            margin-bottom:25px !important;
+        }
+
+ .margin-cl {
+margin-bottom: 25px;
+}
+
+/*-------------- step 2 form css ---------------*/
+
+#step-2-form-title {
+    padding-bottom: 10px;
+    margin-bottom: 13px;
+    border-bottom: 2px solid #dfd8d8;
+}
+
+        /*-------------search bar css  ------------------*/
+
+/*.search-container {
+            text-align: center;
+        }
+
+        #search-box {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #search-button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }*/
+
+
+        .search-container {
+            text-align: left;
+        }
+
+       #search-box {
+            padding: 10px 40px 10px 10px; /* Adjust padding to accommodate the search icon */
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: url('search-icon.svg') no-repeat 95% center; /* Replace 'search-icon.svg' with your actual search icon */
+            background-size: 20px; /* Adjust the size of the search icon */
+        }
+
+
+        /*---------------split dropdown button ---------------------*/
+
+
+      .btn-group {
+            position: relative;
+            display: inline-block;
+        }
+
+       .main-button {
+            width:80px !important;
+            height: 35px;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px 5px 0 0;
+            cursor: pointer;
+        }
+
+ .dropdown-button {
+    width: 50px !important;
+    height: 35px;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 0 0 5px 5px;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+    .dropdown-menu a {
+        padding: 12px 16px;
+        display: block;
+        text-decoration: none;
+        color: #333;
+    }
+
+        .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+        }
+
+
+
+  /*--------------------- edit popup -------------*/
+
+      .margin-cl {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px; /* Add margin for better spacing */
+    }
+
+  .margin-cl label {
+        flex: 1;
+        font-weight: bold; /* Make label names bold */
+        margin-right: 10px;
+    }
+
+   .margin-cl input,
+ .margin-cl select {
+   /* flex: 2;*/
+    border-radius: 20px; /* Add circular borders to both sides for inputs/selects */
+    padding: 8px; /* Add padding for a better appearance */
+    padding-right:10px;
+}
+
+    /*.margin-cl input {
+        border-radius: 0 20px 20px 0; 
+    }*/
+
+.border-grey {
+    border: 2px solid #e1e1e1;
+    width:250px!important;
+    
+}
+
+
+.fs-13 {
+    font-size:13px;
+}
+
+
+
+   /* --------------- copy button related css ----------------*/
+
+ .btn-group {
+    display: inline-block;
+    position: relative;
+}
+
+ .main-button, .dropdown-button {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    padding: 8px; /* Adjusted padding for a smaller height */
+    cursor: pointer;
+    background-color: #fff;
+    color: #333; /* Added text color for better visibility */
+}
+
+ .main-button {
+    border-radius: 50px 0 0 50px;
+}
+
+ .dropdown-button {
+    border-radius: 0 50px 50px 0;
+}
+
+ .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+   .dropdown-menu a {
+        display: block;
+        padding: 8px; /* Adjusted padding for a smaller height */
+        text-decoration: none;
+        color: #333;
+    }
+
+
+
+
+   /*--------------- Search Bar div ----------------*/
+
+.search-ss {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 300px; /* Set a width for the search box */
+    margin-bottom: 12px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px 10px 10px 40px; /* Adjust padding as needed */
+    background-image: url('../ImagesPng/search-line.png');
+    background-repeat: no-repeat;
+    background-position: 10px center; /* Adjust the position of the icon */
+    background-size: 20px; /* Adjust the size of the icon */
+    border: 1px solid #ccc; /* Add border for better visibility */
+    border-radius: 25px;
+    height: 32px !important;
+    outline: none; /* Remove the default input focus outline */
+}
+
+.srcInputRtr {
+    flex: 1;
+    padding: 10px 40px 10px 10px; /* Adjust padding as needed, swapping left and right padding */
+    background-image: url('../ImagesPng/search-line.png');
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Move the background image to the right side */
+    background-size: 20px; /* Adjust the size of the icon */
+    border: 1px solid #ccc; /* Add border for better visibility */
+    border-radius: 25px;
+    height: 32px !important;
+    outline: none; /* Remove the default input focus outline */
+}
+
+
+.search-ss input[type="search"]:focus {
+    border-color: #ccc; /* Set border color when focused (change it as needed) */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Add a box shadow when focused (optional) */
+}
+
+
+
+
+
+      /* -----------------  abort z-indexing -----------------------*/
+
+/* Blur the background when the modal is shown */
+
+
+/*.modal-backdrop {
+    filter: blur(4px);
+}*/
+
+/* Add higher z-index for the abortAppSetup modal */
+#abortAppSetup {
+    z-index: 4500; /* Use a value higher than the default modal z-index */
+}
+
+    #abortAppSetup .modal-dialog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+
+
+   /* --------------  blur effect for edit and delete button ----------*/
+
+/* Add a class to apply opacity effect */
+/*.blur-effect {
+    opacity: 1;
+    
+}*/
+
+/* Define the opacity effect when buttons are disabled */
+/*.blur {
+    opacity: 0.3;*/ /* Adjust the opacity value as needed */
+/*}*/
+
+
+.blur-effect {
+    pointer-events: auto;
+    transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+    /* Define the pointer-events effect when buttons are disabled */
+    .blur-effect:disabled {
+        pointer-events: none;
+        opacity: 0.3;
+       /* filter: grayscale(30%);*/
+    }
+
+
+/*    ------------------  toggling between step 1, step 2 , step 3  in  add button ------------*/
+
+#left-side-bar div {
+    color: black; /* Default color */
+}
+
+    #left-side-bar div.active-step {
+        color: #74B72E; /* Active step color */
+    }
+
+
+
+.error-message {
+    font-size: 11px;
+    color: red;
+    margin-top: 5px; /* Adjust as needed */
+}
+
+.error-border {
+    border: 1px solid red;
+}
+
+
+.modal-large {
+width:900px !important;
+height:700px !important;
+}
+
+
+.hidden-checkbox {
+    display: none;
+}
+
+.row-highlight {
+    background-color: skyblue;
+}
+
+
+/*---------------  table css -------------*/
+
+/* Style for the entire table */
+#dynamic-table {
+    width: 100%;
+    max-width: 1250px; /* Set the fixed width for the table container */
+    height: 250px; /* Set the fixed height for the table container */
+    overflow-x: auto; /* Add a horizontal scrollbar when content exceeds the fixed width */
+    overflow-y: auto; /* Add a vertical scrollbar when content exceeds the fixed height */
+}
+
+/* Style for the entire table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Style for the table header */
+thead {
+    background-color: grey; /* Set text color for the entire header */
+}
+
+/* Style for individual header cells */
+th {
+    color: grey; /* Set text color for individual header cells */
+    border-bottom: 2px solid aqua; /* Set bottom border color and thickness */
+    border-left: 1px solid grey; /* Set left border color and thickness */
+    padding: 10px; /* Add padding for better visual appearance */
+}
+
+/* Style for individual table cells */
+td {
+    border-left: 1px solid grey; /* Set left border color and thickness */
+    padding: 10px; /* Add padding for better visual appearance */
+}
+
+    /* Optional: Hover effect for table cells */
+tr:hover {
+    background-color: #F0F8FF; /* Set background color on hover */
+}
+
+/*th:nth-child(1) {
+    width: 40px;
+}*/
+/* Adjust the width as needed */
+/*th:nth-child(2) {
+    width: 450px !important;
+}*/
+/* Adjust the width as needed */
+/*th:nth-child(3) {
+    width: 150px;
+}*/
+/* Adjust the width as needed */
+/*th:nth-child(4) {
+    width: 150px;
+}*/
+/* Adjust the width as needed */
+/*th:nth-child(5) {
+    width: 150px;
+}*/
+/* Adjust the width as needed */
+/*th:nth-child(6) {
+    width: 150px;
+}*/
+/* Adjust the width as needed */
+/*th:nth-child(7) {
+    width: 150px;
+}*/
+/* Adjust the width as needed */
+/*th:nth-child(8) {
+    width: 150px;
+}*/
+/* Adjust the width as needed */
+/*th:nth-child(9) {
+    width: 150px;
+}*/
+/* Adjust the width as needed */
+
+#dynamic-table::-webkit-scrollbar {
+    width: 4px; /* Set the width of the scrollbar */
+    height: 6px !important;
+}
+
+#dynamic-table::-webkit-scrollbar-thumb {
+    background-color: #808080; /* Set the color of the scrollbar thumb */
+}
+
+
+/*--------------- experi with table -----------*/
+
+td {
+    border-left: 1px solid grey;
+    padding: 10px;
+}
+
+/* Style for selected rows */
+/*tr.selected td {
+    background-color: lightcoral;*/ /* Set the background color for selected rows */
+    /*color: black;*/  /*Set the text color for selected rows */
+    /*font-size: smaller;*/ /* Reduce the font size for selected rows */
+/*}*/
+
+/*tr.selected {
+    background-color: #B9D9EB;
+    border-left: 2px solid orange;
+}*/
+
+/* Style for the checkbox in selected rows */
+/*tr.data-id:checked {
+    background-color: black;*/ /* Set the checkbox background color for selected rows */
+    /*border: 1px solid black;*/ /* Set the checkbox border color for selected rows */
+    /*background-color: lightcoral;
+}*/
+
+
+#stepForm2Thead {
+    background-color: white;
+    border-bottom: 2px solid aqua;
+    
+}
+
+#computerTable {
+    border-collapse: collapse;
+}
+
+#computerTable th, #computerTable td {
+        border: 1px solid white;
+        padding: 8px;  /*Add padding for better appearance */
+}
+
+#computerTable tr.selected {
+    background-color: #B9D9EB;
+    border-left: 2px solid orange;
+}
+.small-font {
+    font-size: 11px;
+}
+
+.medium-font {
+    font-size: 13px;
+}
+
+
+#page-to-page {
+    font-size: 13px;
+}
+
+#note-below-table {
+font-size:14px;
+}
+
+.inboxFont {
+    font-size:13px;
+}
+
+
+.dropdown-menu {
+    transform: translate(0px, 36px) !important;
+}
+
+.roundBtnSpc {
+    
+}
+
+.rounded-btn {
+    border-radius: 20px; /* You can adjust the border radius as needed */
+}
+
+.rounded-dropdown {
+    border-radius: 50px; /* Adjust the border radius as needed */
+}
+
+
+.checkbox-list::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+}
+
+.checkbox-list::-webkit-scrollbar-thumb {
+    background-color: #888; /* Set the color of the thumb */
+    border-radius: 4px; /* Set the border radius of the thumb */
+}
+
+.checkbox-list::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Set the color of the track */
+    border-radius: 4px; /* Set the border radius of the track */
+}
+
+.dropdownRightRounded {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 25px !important; /* Adjust the radius as needed */
+    border-bottom-right-radius: 25px !important; /* Adjust the radius as needed */
+}
+
+.cpBtnLeftRounded {
+    border-top-left-radius: 25px !important;
+    border-bottom-left-radius: 25px !important;
+    border-top-right-radius: 0; /* Adjust the radius as needed */
+    border-bottom-right-radius: 0; /* Adjust the radius as needed */
+    border-right: 1px solid white !important;
+}
+
+
+/*-------- step form 3 related css -------*/
+
+#computerTableForm3 {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    #computerTableForm3 th, #computerTableForm3 td {
+        border: 1px solid #ececec; /* Set the border color to white */
+        padding: 8px;
+        text-align: left;
+    }
+
+#computerTableForm3 th {
+    background-color: white; /* Set a background color for header cells */
+}
+
+.custom-bold {
+    font-weight: bold;
+    font-size: 12px; 
+    color:dimgray;
+}
+
+.custom-div {
+    width: 400px;
+    height: 30px;
+    background-color: #DCDCDC;
+    font-weight: bold;
+    font-size: large;
+    border-bottom: 1px solid black;
+    color: #0CAFFF;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#cpDropdownId .dropdown-menu li:hover {
+    background-color: red; /* Set your desired background color on hover */
+}
+
+ .mdlCtn-cts {
+    height: 550px !important;
+}
+
+.cpSiteProp {
+    max-height: 300px;
+    overflow-y: auto;
+    
+}
+
+
+.cpSiteIpLbProp {
+    margin: 5px ;
+    padding: 5px;
+    font-size: 14px ;
+}
+
+input[type="checkbox"] {
+    filter: sepia(100%) brightness(80%) hue-rotate(170deg) saturate(70%) contrast(300%);
+   
+    border-color:black;
+}
+
+.chSitePropLb {
+    font-size: 18px;
+    color: #848482;
+}
+
+/*.dlt-dd-alignCtr {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}*/
+
+#delete-dropdown .modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cstm-mf-bdrTop {
+    border-top: 1px solid #f7f7f7 !important;
+}
+
+.br-4 {
+    border-radius: 6px;
+    margin:8px;
+}
+
+#conformInstallApp .modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*.selected-row {
+    background-color: #B9D9EB !important;
+}*/
+
+/*#table-body tr.selected {
+    background-color: lightblue;  Change this to the background color you prefer for selected rows 
+    color: black;  Change this to the text color you prefer for selected rows 
+}
+
+#table-body tr.selected-row {
+    background-color: lightcoral;  Change this to the background color you prefer for selected rows 
+    color: white;  Change this to the text color you prefer for selected rows 
+}*/
+
+/*#table-body tr.selected-row {
+    background-color: lightblue !important;*/ /* Change this to the background color you prefer for selected rows */
+    /*color: black;*/ /* Change this to the text color you prefer for selected rows */
+/*}*/
+
+.selected-row td {
+    background-color: #B9D9EB; /* Set your desired background color here */
+}
+
+tr.selected-row td {
+    background-color: #B9D9EB;
+    /* border-left: 2px solid orange;*/
+}
+
+
+
+

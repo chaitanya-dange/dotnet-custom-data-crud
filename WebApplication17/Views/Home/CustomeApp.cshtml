@@ -1,0 +1,673 @@
+﻿@{
+    var bootstrapCssUrl = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css";
+    //var jqueryScriptUrl = "https://code.jquery.com/jquery-3.5.1.slim.min.js";
+    var popperScriptUrl = "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js";
+    var bootstrapJsUrl = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CustomeApp</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/CustomeApp/customeApp.css" rel="stylesheet" />
+    <script src="~/Scripts/Script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS (Include if not already included) -->
+    <link href="@bootstrapCssUrl" rel="stylesheet">
+
+    <!-- Bootstrap Toast JS (Include if not already included) -->
+    @*<script src="@jqueryScriptUrl"></script>*@
+    <script src="@popperScriptUrl"></script>
+    <script src="@bootstrapJsUrl"></script>
+
+</head>
+<body>
+
+
+
+
+    <div id="container">
+
+
+
+
+
+
+
+        <!-- Add Modal -->
+        <div class="modal fade " id="add-staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-dd">
+                <div class="modal-content modal-content-cc">
+                    <div class="modal-header">
+                        <div>
+                            <h1 class="modal-title fs-5" id="addBackdropLabel">Set  up Custome App <i class="ri-information-line" style="color: blue;"> </i></h1>
+
+                        </div>
+
+                        <button type="button" id="addHeaderCloseBtn" class="btn-close" @*data-bs-dismiss="modal"*@ aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="body-area-popup">
+                            <div id="left-side-bar">
+                                <div> Step 1 : Specify Custome App Details</div>
+                                <div> Step 2 :Select Computer to install</div>
+                                <div> Step 3 :First time install</div>
+                            </div>
+                            <div id="right-side-bar">
+                                <form id="myForm" method="post" action="/Home/CustomeApp">
+                                    <div id="step-1-form" style="display: block;">
+                                        <div id="content-text">Create a custom App package to deploy on your computers</div>
+                                        <div class="bold-mk" id="package-details-title">Package Details</div>
+
+
+
+                                        <!-- Input for Package Name -->
+                                        <div class="margin-sm">
+
+                                            <label style="font-size:12px;" for="PackageName">PACKAGE NAME</label>
+                                            <span style="font-size:11px"> This will be the name of the Custom App  you are setting up  on your Deploy Console</span>
+                                            <input class="inboxFont" type="text" id="PackageName" name="PackageName" placeholder="Enter the package Name" required>
+                                            <div id="PackageName-error" class="error-message"></div>
+                                        </div>
+
+
+                                        <!-- Radio buttons for URL or Upload Installer -->
+                                        <div class="margin-sm">
+                                            <label style="font-size:12px;">URL</label>
+                                            <div id="add-radio-button">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="installOption" id="enterUrl" checked>
+                                                    <label style="font-size:11px" class="form-check-label" for="enterUrl">Enter URL</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="installOption" id="uploadInstaller">
+                                                    <label style="font-size:11px" class="form-check-label" for="uploadInstaller">Upload Installer</label>
+                                                </div>
+
+                                            </div>
+                                            <div>
+                                                <input class="custom-input inboxFont " type="text" name="Url" id="Url" placeholder="Enter the URL beginning with either http://,sftp:// or UNC ">
+                                                <div id="Url-error" class="error-message"></div>
+                                            </div>
+
+
+
+                                        </div>
+
+
+                                        <!-- Select for Architecture -->
+                                        <div class="margin-sm">
+
+                                            <label style="font-size:12px;" for="Architecture"> ARCHITECTURE</label>
+                                            <span style="font-size:11px">Choose the architecture of the computer on which  this application is meant  to be installed</span>
+                                            <select class="inboxFont" style="margin-top: 5px;" name="Architecture" id="Architecture">
+                                                <option value="32 and 64 bit" selected>32 and 64 bit<i class="ri-arrow-down-s-line"></i></option>
+                                                <option value="32 bit only">32 bit only</option>
+                                                <option value="64 bit only">64 bit only</option>
+                                            </select>
+                                        </div>
+
+
+                                        <!-- Input for Install Command Line -->
+                                        <div class="install-cdLine margin-sm">
+
+                                            <label style="font-size:12px;" for="InstallCommandLine">INSTALL COMMAND LINE</label>
+                                            <span style="font-size:11px"> Please exclude  /i and /qn for MSI Installer </span>
+                                            <input class="inboxFont custom-input" style="margin-top: 7px;" type="text" name="InstallCommandLine" id="InstallCommandLine" placeholder="Install Command Line">
+                                        </div>
+
+
+                                        <!-- Input for Uninstall Command Line -->
+                                        <div class="un-install-cdLine margin-sm">
+
+                                            <label style="font-size:12px;" for="UninstallCommandLine">UNINSTALL COMMAND LINE</label>
+                                            <div style="font-size:11px"> Request Silent  install/ assistance  <span style="color: #6CB4EE; display: inline; "> Talk to a Deployment Specialist</span> </div>
+                                            <input class="custom-input inboxFont" type="text" name="UninstallCommandLine" id="UninstallCommandLine" placeholder="Uninstall Command Line">
+                                        </div>
+
+
+                                        <!-- Select for Restart -->
+                                        <div class="restart-div margin-sm">
+
+                                            <label style="font-size:12px;" for="Restart">RESTART:</label>
+
+                                            <select class="inboxFont" name="Restart" id="Restart">
+                                                <option value="Not Set">Not Set <i class="ri-arrow-down-s-line"></i></option>
+                                                <option value="Set">Set</option>
+                                            </select>
+                                        </div>
+
+
+                                        <!-- Input for Install Timeout -->
+                                        <div class="install-timeOut margin-sm">
+
+                                            <label style="font-size:12px;" for="InstallTimeOut">INSTALL TIMEOUT:</label>
+                                            <input class="small-font" type="number" name="InstallTimeOut" id="InstallTimeOut" placeholder="10">
+                                            <div id="InstallTimeOut-error" class="error-message"></div>
+                                        </div>
+
+
+                                        <!-- Select for Run As -->
+                                        <div class="margin-sm">
+
+                                            <label style="font-size:12px;" for="RunAs">Run as</label>
+                                            <span style="font-size:11px">Use the system account , or use an account that has Administrator privileges to run this file.</span>
+                                            <select class="inboxFont" name="RunAs" id="RunAs">
+                                                <option value="System Account">System Account</option>
+                                                <option value="User Account">User Account</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                                <!-- Step 2 Form -->
+                                <div id="step-2-form" style="display: none;">
+                                    <div id="step-2-form-title"> Step 2: Select Step to install</div>
+                                    <!-- Add your content for Step 2 here -->
+                                    <div class="search-ss">
+                                        <input id="searchForm2" type="search" placeholder="Search" class="search-input">
+
+                                    </div>
+                                    <div>
+                                        <table id="computerTable" border="1">
+                                            <thead id="stepForm2Thead">
+                                                <tr>
+                                                    <th class="thead-prop">Computer Name</th>
+                                                    <th class="thead-prop">Group</th>
+                                                    <th class="thead-prop">Policy</th>
+                                                    <th class="thead-prop">Operating System</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- Data will be dynamically inserted here using jQuery -->
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="box-below-table small-font">
+                                        <div id="stepTwoPager">
+                                            @*Page 1 0f 1( 1 items )*@
+
+                                        </div>
+                                        <i class="ri-arrow-left-s-line"></i>
+                                        <span class="center-text" style="width: 20px; height: 20px; background-color: grey; border-radius: 5px;"> 1</span>
+                                        <i class="ri-arrow-right-s-line"></i>
+                                    </div>
+                                </div>
+
+
+                                <!-- Step 3 Form -->
+                                <div id="step-3-form" style="display: none;">
+                                    <div id="step3-form-title"> Step 3: First time install </div>
+                                    <div id="step3FormContent">
+                                        <div>
+                                            <table id="computerTableForm3" border="1">
+                                                <thead id="stepForm3TbHeader">
+                                                    <tr>
+                                                        <th class="thead-prop">Computer Name</th>
+                                                        <th class="thead-prop" value="the value"></th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <!-- Data will be dynamically inserted here using jQuery -->
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div>
+                                            <button type="button" class="rounded-border button-outlined" style="color: #74B72E !important; border-color: #74B72E !important; " data-bs-toggle="modal" data-bs-target="#conformInstallApp">
+                                                Install
+                                            </button>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="medium-font" id="formThreeCtn1" style="display:block">
+                                        Please select the computer that does not have this application  already installed . <br />
+                                        Running the installer on such a computer might uninstall the application  and  <br />
+                                        result in loss of user data .
+                                    </div>
+
+                                    <div class="medium-font" id="formThreeCtn2" style="display:none">
+                                        <div>
+                                            <div class="custom-bold"> Detected one application</div>
+                                            <div> Please confirm that this is the application you intend to install</div>
+                                        </div>
+
+                                        <div>
+                                            <div class="custom-bold"> Custom app name </div>
+                                            <div class="custom-div"> SplashID Safe</div>
+                                        </div>
+
+                                        <div>
+                                            If these are not the applications you intended to install ,<span style="color: #6CB4EE;">click here to  <br />talk to a  Deployment Specialist</span>
+                                        </div>
+
+                                        <div>
+                                            This custom app is now ready to be installed on the other computer. If <br /> this app is  already installed on any other computers then it may take <br /> up to 60 minutes to  sync the status from the other computers.
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="modal-footer modal-footer-ff cstm-mf-bdrTop">
+                            <button type="button" class="rounded-border button-outlined " id="cancel-add-btn" @*data-bs-dismiss="modal"*@>Cancel</button>
+                            <button type="button" class="rounded-border button-outlined" data-bs-target="#add-staticBackdrop" id="nextButton">Next </button>
+                            <button type="button" class="rounded-border button-outlined" style="display: none;" @*data-bs-target="#add-staticBackdrop"*@ id="okAddButton">OK </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+        <!-- Button trigger modal -->
+        @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#delete-dropdown">
+                Delete
+            </button>*@
+
+
+        <!-- Delete Modal -->
+        <div class="modal fade dlt-dd-alignCtr" id="delete-dropdown" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="dltLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title chSitePropLb" id="dltLabel">Delete Custome App Confirm</h5>
+                        <button type="button" class="btn-close" id="dltModalHeaderClose" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete the Custome App <b id="pkgNameBdl"></b>
+                    </div>
+                    <div class="modal-footer cstm-mf-bdrTop">
+                        <button type="button" id="deleteBtn" class=" button-primary br-4">DELETE</button>
+                        <button type="button" class=" button-primary br-4 " id="dltModalFooterCl" data-bs-dismiss="modal">CANCEL</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Edit Modal -->
+        <!-- Button trigger modal -->
+        @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#edit-dropbox-modal">
+                Edit
+            </button>*@
+
+
+
+        <!--Edit-popup- Modal -->
+        <div class="modal fade" id="edit-dropbox-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editBackdropLabel">Edit Custom App  <i class="ri-information-line" style="color: blue;"> </i></h5>
+                        <button type="button" id="editHeaderCloseBtn" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editForm" class="fs-13">
+                            <div class="margin-cl d-none">
+                                <label for="Id">Package Id</label>
+                                <input class="border-grey" type="text" name="Id" id="Id" value="Id">
+                            </div>
+                            <div class="margin-cl">
+                                <label for="packageName">Package Name</label>
+                                <input class="border-grey" type="text" name="packageName" id="packageName" value="SplashID">
+                            </div>
+                            <div class="margin-cl">
+                                <label for="url">URL</label>
+                                <input class="border-grey" type="text" name="url" id="url" value="http://cloudcdn.splashid.com/Splash">
+                            </div>
+                            <div class="margin-cl">
+                                <label for="architecture">Architecture</label>
+                                <select class="border-grey" name="architecture" id="architecture">
+                                    <option value="32 and 64 bit">32 and 64 bit</option>
+                                    <option value="32 bit only">32 bit only</option>
+                                    <option value="64 bit only">64 bit only</option>
+                                </select>
+                            </div>
+                            <div class="margin-cl">
+                                <label for="installCommandLine">Install Command Line</label>
+                                <input class="border-grey" type="text" name="installCommandLine" id="installCommandLine" value="msiexec /i SplashID.msi">
+                            </div>
+                            @*<div class="margin-cl">
+                                    <label for="msiExcludeLandQn">Exclude /land/qn for MSI Installers</label>
+                                    <input type="checkbox" class="circular-checkbox" name="msiExcludeLandQn" id="msiExcludeLandQn" checked>
+                                </div>*@
+                            <div class="margin-cl">
+                                <label for="uninstallCommandLine">Uninstall Command Line</label>
+                                <input class="border-grey" type="text" name="uninstallCommandLine" id="uninstallCommandLine" value="msiexec /x SplashID.msi">
+                            </div>
+                            <div class="margin-cl">
+                                <label for="restart">Restart Required</label>
+                                <select class="border-grey" name="restart" id="restart">
+                                    <option value="Not Set">Not Set <i class="ri-arrow-down-s-line"></i></option>
+                                    <option value="Set">Set</option>
+                                </select>
+                            </div>
+                            <div class="margin-cl">
+                                <label for="installTimeout">Install Timeout</label>
+                                <input class="border-grey" type="number" name="installTimeout" id="installTimeout" value="10">
+                            </div>
+                            <div class="margin-cl">
+                                <label for="runAs">Run As</label>
+                                <select class="border-grey" name="RunAs" id="runAs">
+                                    <option value="System Account">System Account</option>
+                                    <option value="User Account">User Account</option>
+                                </select>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer modal-footer-ff cstm-mf-bdrTop">
+                        <button type="button" id="editFooterClose" class="rounded-border button-outlined " data-bs-dismiss="modal">Cancel</button>
+                        <button id="updateBtn" type="button" class="rounded-border button-primary ">Update </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Conform Install App -->
+        @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#conformInstallApp">
+                Install
+            </button>*@
+
+
+        <!-- Conform install App Modal -->
+        <div class="modal fade" id="conformInstallApp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="installBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="installBackdropLabel">Conform install App</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <p>Actions will be performed on cells selected on the grid.</p>
+                        <ul>
+                            <li>
+                                "Computer Selected: 1"
+                            </li>
+                            <li>
+                                "App to install: 1"
+                            </li>
+                        </ul>
+                        <p>Are you sure you want to install the application?</p>
+
+                    </div>
+                    <div class="modal-footer cstm-mf-bdrTop">
+                        <button type="button" class=" button-primary br-4" id="installFinalLevelBtn">INSTALL </button>
+                        <button type="button" class=" button-primary br-4" @*data-bs-dismiss="modal"*@>CANCEL </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="abortAppSetup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="abortBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="abortBackdropLabel">Abort Custome App Setup</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to abort this custom app  setup?
+                    </div>
+                    <div class="modal-footer cstm-mf-bdrTop">
+                        <button type="button" id="cancel-final-Btn" class=" button-primary br-4">YES</button>
+                        <button type="button" class=" button-primary br-4" data-bs-dismiss="modal">NO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="btn-group ">
+                <button class="main-button" onclick="mainButtonClick()">Copy</button>
+                <button class="dropdown-button" onclick="toggleDropdown()"><i class="ri-arrow-down-s-line"></i></button>
+                <div id="dropdownMenu" class="dropdown-menu">
+                    <a href="#">Duplicate</a>
+                    <a href="#">Copy to Sites</a>
+
+                </div>
+            </div>*@
+
+
+        <!-- Button trigger modal -->
+        <button type="button" id="btnCustomScript" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#CustomeScriptBtn">
+            Custom Script
+        </button>
+
+
+        <!--Custome Scritp  Modal -->
+        <div class="modal fade " id="CustomeScriptBtn" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="CustomeScriptBtnLabel" aria-hidden="true">
+            <div class="modal-dialog modal-script-dd">
+                <div class="modal-content modal-script-cc ">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="CustomeScriptBtnLabel">
+                            Custome App
+                            <i class="ri-information-line" style="color: blue;"></i>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" id="customScriptCloseBtn" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="all-custome-app">
+                            All Custome Apps
+                        </div>
+
+
+                        <div id="multi-functionlity">
+
+                            <div class="search-ss" style="margin-top: 20px;">
+                                <input type="search" placeholder="Search" class="search-input" id="searchInput">
+                            </div>
+
+
+                            <div id="crud-operation">
+                                @*@<span> <button class="rounded-border" onclick="openPopup()">ADD</button></span>@*@
+                                <div>
+                                    <span>
+                                        <button id="addTopBtn" type="button" class=" rounded-border blur-effect  button-outlined" data-bs-toggle="modal" data-bs-target="#add-staticBackdrop">
+                                            Add
+                                        </button>
+                                    </span>
+                                </div>
+
+                                @*@<span><button class="rounded-border" onclick="openPopup()">EDIT</button></span>@*@
+                                <div>
+                                    <span>
+                                        <button id="editBtn" type="button" class=" rounded-border blur-effect button-outlined" data-bs-toggle="modal" data-bs-target="#edit-dropbox-modal" disabled>
+                                            Edit
+                                        </button>
+                                    </span>
+                                </div>
+                                <div>
+                                    <span>
+                                        <button id="dltBtnPopUp" type="button" class="roundBdrDlt blur-effect" style="border: 2px solid red; color: red;" data-bs-toggle="modal" @*data-bs-target="#delete-dropdown"*@ disabled>
+                                            Delete
+                                        </button>
+                                    </span>
+                                </div>
+
+
+
+                                @*<span class="rounded-border">
+                                        <span>
+                                            <button class="rounded-border" style=" border-right: 1px solid white;">COPY <i class="ri-arrow-down-line"></i></button>
+                                        </span>
+
+                                    </span>*@
+                                @*<div>
+                                        <div id="mainDiv" class="btn-group" style="margin-top: 10px;">
+                                            <button class="main-button" style="padding-top: 4px;">Copy</button>
+                                            <button id="imgDropDownList" class="dropdown-button" style="display: flex; justify-content: center; align-items: center;"><i style="font-size: 25px;" class="ri-arrow-down-s-line"></i></button>
+                                            <div id="dropdownMenu" class="dropdown-menu">
+                                                <a href="#">Duplicate</a>
+                                                <a href="#">Copy to Sites</a>
+                                            </div>
+                                        </div>
+                                    </div>*@
+
+                                <div id="copyMainBtn" class="btn-group  rounded-border blur-effect ">
+                                    <button type="button" class="btn btn-primary rounded-btn cpBtnLeftRounded">Copy</button>
+                                    <button id="dropDownExpBtn" type="button" class=" btn btn-primary rounded-dropdown dropdownRightRounded " data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span @*class="visually-hidden"*@><i class="ri-arrow-down-s-line"></i></span>
+                                    </button>
+                                    <ul id="cpDropdownId" class="dropdown-menu dropdown-menu-center p-3">
+                                        <li><span id="duplicateOptPrs">Duplicate</span></li>
+                                        <li><span onclick="openCopyToSitesModal()">Copy to Sites</span></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="dynamic-table">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="thead-prop"><input type="checkbox" id="selectAllCheckbox"></th>
+                                        <th class="thead-prop" style="width:350px">PackageName</th>
+                                        <th class="thead-prop" style="width:350px">Url</th>
+                                        <th class="thead-prop" style="width:150px">Architecture</th>
+                                        <th class="thead-prop" style="width:150px">InstallCommandLine</th>
+                                        <th class="thead-prop" style="width:150px">UninstallCommandLine</th>
+                                        <th class="thead-prop" style="width:100px">Restart</th>
+                                        <th class="thead-prop" style="width:150px">InstallTimeOut</th>
+                                        <th class="thead-prop" style="width:150px">RunAs</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-body">
+                                    <!-- Table rows will be dynamically added here -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="box-below-table">
+                            <div id="page-to-page">
+                                @*Page 1 0f 1( 1 items )*@
+
+                            </div>
+                            <i class="ri-arrow-left-line"></i>
+                            <span class="center-text" style="width: 25px; height: 25px; background-color: grey; border-radius: 5px;"> 1</span>
+                            <i class="ri-arrow-right-line"></i>
+                        </div>
+                        <div id="note-below-table">Note: To select multiple custome app, use ctrl + click </div>
+                    </div>
+                    <div class="modal-footer modal-footer-ff cstm-mf-bdrTop">
+                        <button type="button" class="rounded-border button-outlined" id="customScriptCancelBtn" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="rounded-border button-primary ">Done</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @*--------------split dropdown for copy-----------*@
+
+        <!-- Example split danger button -->
+        <!--<div  id="copyMainBtn" class="btn-group  rounded-border blur-effect ">
+            <button type="button" class="btn btn-primary rounded-btn cpBtnLeftRounded">Copy</button>
+            <button type="button" class=" btn btn-primary rounded-dropdown dropdownRightRounded " data-bs-toggle="dropdown" aria-expanded="false">
+                <span-->
+        @*class="visually-hidden"*@
+        <!--><i class="ri-arrow-down-s-line"></i></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-center">
+                <li><span>Duplicate</span></li>
+                <li><span onclick="openCopyToSitesModal()">Copy to Sites</span></li>
+
+            </ul>
+        </div>-->
+        @*dropdown-toggle-split*@
+        @*dropdown-toggle*@
+
+
+        <!-- Button trigger modal -->
+        @*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#coptToSites">
+                Launch static backdrop modal
+            </button>*@
+
+        <!-- Modal -->
+        <div class="modal fade" id="coptToSites" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="copyBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content mdlCtn-cts">
+                    <div class="modal-header">
+                        <h5 class="modal-title chSitePropLb" id="copyBackdropLabel">Choose Sites</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="search-ss" style="margin-top: 20px;">
+                            <input type="search" placeholder="Search" class="srcInputRtr" id="srcInputCopyModal">
+                        </div>
+
+                        <div class="checkbox-list cpSiteProp" @*style="max-height: 300px; overflow-y: auto;"*@>
+                            Checkboxes will be dynamically added here
+                        </div>
+
+                    </div>
+                    <div class="modal-footer modal-footer-ff">
+                        <button type="button" class="rounded-border button-outlined" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="rounded-border button-primary">Copy to Sites</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        @*----------- trying toast message-----------*@
+
+    <div id="toast-container">
+
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+            <div class="toast-header">
+                <strong class="mr-auto">Notification</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                <!-- Toast message body goes here -->
+            </div>
+        </div>
+
+
+    </div>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
